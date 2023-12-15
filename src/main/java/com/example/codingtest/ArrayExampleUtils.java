@@ -353,7 +353,7 @@ public class ArrayExampleUtils {
         // 첫번째행
         // 첫번째열
         // 마지막행
-        // 마지막열 
+        // 마지막열
 
         int index = 0;
         while(index < n+2) {
@@ -416,6 +416,10 @@ public class ArrayExampleUtils {
        int[][] array = {{2, 3, 1, 7, 3},{4, 1, 9, 6, 8},{5, 5, 2 ,4 ,4},{6, 5, 2, 6, 7},{8, 4, 2, 2, 2}};
        int[] arr = new int[n];
 
+
+        int maxValue = 0;
+        int maxPerson = 0;
+
        // 고정변수 : 5학년까지만 존재함
         for(int i = 0; i < n; i++) {            // i 라는 학생
             int iCount = 0;
@@ -427,18 +431,27 @@ public class ArrayExampleUtils {
                 }
             }
             arr[i] = iCount; // i 라는 학생의 같은반되었던 횟수
-        }
 
-
-        int maxValue = 0;
-        int maxPerson = 0;
-        for(int i = 0; i < n ; i++) {
             if(arr[i] > maxValue) {
                 maxPerson = i;
                 maxValue = arr[i];
             }
         }
         System.out.println(maxPerson+1);
+    }
 
+
+    public void 멘토링(int n, int m) {
+        Scanner sc = new Scanner(System.in);
+        int[][] arr = new int[m][n];
+
+        for(int i=0; i < m; i++) {      // 시험횟수
+            for(int j = 0; j < n; j++) {  // 등수
+                arr[i][j] = sc.nextInt();
+            }
+        }
+
+        System.out.println(Arrays.deepToString(arr));
     }
 }
+

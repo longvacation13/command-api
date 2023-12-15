@@ -3,9 +3,11 @@ package com.example.commandapi;
 
 import com.example.codingtest.ArrayExampleUtils;
 import com.example.codingtest.BackJunExampleUtils;
+import com.example.codingtest.PointerExampleUtils;
 import com.example.codingtest.StringExampleUtils;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -100,7 +102,10 @@ public class CommandApiApplication {
 
           //arrayExampleUtils.격자최대합(5);
           //arrayExampleUtils.봉우리의갯수(5);
-         arrayExampleUtils.임시반장정하기(5);
+         //arrayExampleUtils.임시반장정하기(5);
+        //arrayExampleUtils.멘토링(4, 3);
+        PointerExampleUtils utils = new PointerExampleUtils();
+        utils.두배열합치기(10, 7);
 
     }
 
