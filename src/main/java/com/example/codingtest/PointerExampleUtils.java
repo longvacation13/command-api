@@ -7,7 +7,7 @@ public class PointerExampleUtils {
 
     /**
      * 아래 두 배열을 순서대로 정렬하시오.
-     * 배열을 합쳐서 소팅 -> 최악 O(nLogn) 만큼의 시간복잡도가 소모됨 
+     * 배열을 합쳐서 소팅 -> 최악 O(nLogn) 만큼의 시간복잡도가 소모됨
      * @param n
      * @param m
      */
@@ -54,6 +54,35 @@ public class PointerExampleUtils {
         }
 
         System.out.println(result.toString());
+    }
+
+    public void 공통원소찾기() {
+        int[] arr1 = {1, 3, 9, 5, 2};
+        Arrays.sort(arr1); // 1, 2, 3, 5, 9
+
+        int[] arr2 = {3, 2, 5, 7, 8};
+        Arrays.sort(arr2); // 2, 3, 5, 7, 8
+
+        List<Integer> resultList = new ArrayList<>();
+
+        int p1 = 0;   // arr1의 포인터
+        int p2 = 0;   // arr2의 포인터
+
+        while((p1 < arr1.length) && (p2 < arr2.length)) {
+            if(arr1[p1] == arr2[p2]) {
+                resultList.add(arr1[p1]);
+                p1++;
+                p2++;
+            } else if(arr1[p1] > arr2[p2]) {
+                p2++;
+            } else if(arr1[p1] < arr2[p2]) {
+                p1++;
+            }
+        }
+
+
+        System.out.println(resultList.toString());
+
     }
 
 
