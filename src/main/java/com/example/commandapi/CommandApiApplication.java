@@ -106,7 +106,8 @@ public class CommandApiApplication {
         //arrayExampleUtils.멘토링(4, 3);
         PointerExampleUtils utils = new PointerExampleUtils();
         //utils.두배열합치기(10, 7);
-        utils.공통원소찾기();
+        //utils.공통원소찾기();
+        utils.최대매출찾기(10, 3);
 
     }
 

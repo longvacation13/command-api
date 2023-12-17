@@ -79,9 +79,29 @@ public class PointerExampleUtils {
                 p1++;
             }
         }
-
-
         System.out.println(resultList.toString());
+    }
+
+    public void 최대매출찾기(int n, int m){
+        int[] arr = {12, 15, 11, 20, 25, 10, 20, 19, 13, 15 };
+
+        int maxSum = 0;
+
+        // 첫번째 sum
+        for(int i = 0; i < m; i++){
+            maxSum += arr[i];
+        }
+        int sum = 0;
+        sum = maxSum;
+
+        for(int i = 1; i < n-m; i++) {
+            sum = sum - arr[i-1] + arr[i+(m-1)];
+            System.out.println("i : [ "+i+" ], sum : "+sum);
+            if(sum > maxSum) {
+                maxSum = sum;
+            }
+        }
+        System.out.println(maxSum);
 
     }
 
