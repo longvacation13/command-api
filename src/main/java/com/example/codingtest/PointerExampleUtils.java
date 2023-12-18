@@ -105,9 +105,33 @@ public class PointerExampleUtils {
 
     }
 
+    public void 연속부분수열 (int n, int m) {  // 8 , 6
+        int arr[] = {1, 2, 1, 3, 1, 1, 1, 2};
 
 
+        int sum = arr[0];
+        int resultCount = 0;
 
+        int index = 1;
+        int startIndex = 0;
+
+        while(index < n) {
+            if(sum == m) {
+                resultCount++;  // 원소 갯수 +1
+                sum = sum - arr[startIndex];
+                startIndex++;
+            }
+            else if(sum < m) {
+                sum = sum + arr[index];
+                index++;
+            } else {    // sum > n
+                sum = sum - arr[startIndex];
+                startIndex++;
+            }
+        }
+
+        System.out.println(resultCount);
+    }
 
 }
 
