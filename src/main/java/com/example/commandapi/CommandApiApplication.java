@@ -1,18 +1,13 @@
 package com.example.commandapi;
 
 
-import com.example.codingtest.ArrayExampleUtils;
-import com.example.codingtest.BackJunExampleUtils;
-import com.example.codingtest.PointerExampleUtils;
-import com.example.codingtest.StringExampleUtils;
+import com.example.codingtest.*;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.awt.*;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 import java.util.List;
-import java.util.Scanner;
 import java.util.stream.Stream;
 
 @SpringBootApplication(scanBasePackages = "com.example.*")
@@ -108,7 +103,13 @@ public class CommandApiApplication {
         //utils.두배열합치기(10, 7);
         //utils.공통원소찾기();
         //utils.최대매출찾기(10, 3);
-        utils.연속부분수열(8, 6);
+        //utils.연속부분수열(100, 100);
+        utils.연속된자연수의합(15);
+
+
+        //LinkedListExampleUtils linkedListExampleUtils = new LinkedListExampleUtils();
+        //linkedListExampleUtils.LinkedListNodeTest();
+
 
     }
 

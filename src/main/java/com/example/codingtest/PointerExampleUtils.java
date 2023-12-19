@@ -106,31 +106,62 @@ public class PointerExampleUtils {
     }
 
     public void 연속부분수열 (int n, int m) {  // 8 , 6
-        int arr[] = {1, 2, 1, 3, 1, 1, 1, 2};
+        //int arr[] = {1, 2, 1, 3, 1, 1, 1, 2};
+        int arr[] = {3,3,1,4,5,2,2,5,2,1,2,2,1,1,4,1,4,3,3,5,1,5,1,3,4,5,4,5,2,4,2,1,1,4,2,1,5,3,1,3,1,1,1,2,4,4,5,5,5,5,3,2,5,5,3,2,3,4,1,3,3,4,5,1,3,1,3,2,3,1,2,3,2,5,5,4,2,3,1,2,3,2,4,5,2,4,4,4,4,3,1,5,2,2,1,3,2,5,4,1};
 
 
-        int sum = arr[0];
+        int lt = 0;
+
+        int sum = 0;
         int resultCount = 0;
 
-        int index = 1;
-        int startIndex = 0;
-
-        while(index < n) {
+        for(int rt = 0; rt < arr.length ; rt++) {
+            sum += arr[rt];
             if(sum == m) {
-                resultCount++;  // 원소 갯수 +1
-                sum = sum - arr[startIndex];
-                startIndex++;
+                resultCount++;
             }
-            else if(sum < m) {
-                sum = sum + arr[index];
-                index++;
-            } else {    // sum > n
-                sum = sum - arr[startIndex];
-                startIndex++;
+            while(sum >= m) {
+                sum -= arr[lt];
+                lt++;
+
+                if(sum == m) { // m과 같을때만 resultCount++ 해줌, 아닐때는 그냥 뺼셈만 해줌, 그러면 while문이 끝난 시점에는 sum < m 만 남게됨
+                    resultCount++;
+                }
+            }
+
+            // 작을때 -> 아무것도 하지 않음
+        }
+
+        System.out.println(resultCount);
+    }
+
+
+    public void 연속된자연수의합(int n) {
+
+
+        int lt = 1;
+        int sum = 0;
+        int resultCount = 0;
+
+        for(int rt = 1; rt <= ((n / 2) + 1); rt++) {
+            sum += rt; // 작을 경우도 해결해줌
+            if(sum == n) {
+                resultCount++;
+            }
+
+            while(sum >= n) {
+                sum-=lt;
+                lt++;
+                if(sum == n) {
+                    resultCount++;
+                }
             }
         }
 
         System.out.println(resultCount);
+
+
+
     }
 
 }
