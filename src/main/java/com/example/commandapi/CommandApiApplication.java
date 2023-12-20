@@ -99,16 +99,21 @@ public class CommandApiApplication {
           //arrayExampleUtils.봉우리의갯수(5);
          //arrayExampleUtils.임시반장정하기(5);
         //arrayExampleUtils.멘토링(4, 3);
-        PointerExampleUtils utils = new PointerExampleUtils();
+
+        //PointerExampleUtils utils = new PointerExampleUtils();
         //utils.두배열합치기(10, 7);
         //utils.공통원소찾기();
         //utils.최대매출찾기(10, 3);
         //utils.연속부분수열(100, 100);
-        utils.연속된자연수의합(15);
+        //utils.연속된자연수의합(15);
 
 
         //LinkedListExampleUtils linkedListExampleUtils = new LinkedListExampleUtils();
         //linkedListExampleUtils.LinkedListNodeTest();
+
+        HashExampleUtils hashUtils = new HashExampleUtils();
+        hashUtils.학급회장선출("BACBACCACCBDEDE");
+
 
 
     }
