@@ -105,8 +105,40 @@ public class HashExampleUtils {
     }
 
     public void K번째큰수() {
-
-
+        TreeSet<Integer> set = new TreeSet<>(Collections.reverseOrder());
     }
+
+
+    class BadHash {
+        private int value;
+
+        public BadHash(int value) {
+            this.value = value;
+        }
+
+        @Override
+        public int hashCode() {
+            // 모든 객체에 대해 동일한 해시코드를 반환
+            return 1;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (this == obj) return true;
+            if (obj == null || getClass() != obj.getClass()) return false;
+            BadHash badHash = (BadHash) obj;
+            return value == badHash.value;
+        }
+   }
+
+   public void BadHashExample() {
+        HashSet<BadHash> set = new HashSet<>();
+        set.add(new BadHash(1));
+        set.add(new BadHash(2));
+        set.add(new BadHash(3));
+   }
+
+
+
 }
 

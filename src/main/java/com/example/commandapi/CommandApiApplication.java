@@ -115,7 +115,11 @@ public class CommandApiApplication {
         //hashUtils.학급회장선출("BACBACCACCBDEDE");
 
         //hashUtils.매출액종류();
-        hashUtils.모든아나그램찾기();
+        //hashUtils.모든아나그램찾기();
+
+        //hashUtils.K번째큰수();
+        hashUtils.BadHashExample();
+
 
 
 
