@@ -32,11 +32,79 @@ public class HashExampleUtils {
             map.put(X, map.getOrDefault(X, 0)+1);
         }
 
-        int max = Integer.MIN_VALUE;
-        for(char key : map.keySet()) {
+        StringBuilder sb = new StringBuilder();
 
+
+        int max = Integer.MIN_VALUE;
+        String 반장 = "";
+        for(char key : map.keySet()) {
+            if(map.get(key) > max) {
+                max = map.get(key);
+                반장 = String.valueOf(key);
+            }
         }
 
+        System.out.println(반장);
+    }
+
+    // 매출액의 종류가 몇가지인지 출력
+    public void 매출액종류() {
+        int N = 7; // 7일간의 매출기록
+        int K = 4; // 4일 매출종류
+        int arr[] = {20, 12, 20, 10, 23, 17, 10};
+        HashMap<Integer, Integer> map = new HashMap<>();
+
+        // 반복적인 작업 전 (= k-1 까지)만 작업함
+        for(int i = 0; i < K-1; i++) {
+            map.put(arr[i], map.getOrDefault(arr[i],0) + 1 );
+        }
+
+        int lt = 0;
+        for(int rt = K-1; rt < N ; rt++) {
+            map.put(arr[rt], map.getOrDefault(arr[rt], 0)+1);
+            System.out.println(map.keySet().size());
+            map.put(arr[lt], map.get(arr[lt])-1);
+            if(map.get(arr[lt]) == 0) {
+                map.remove(arr[lt]);
+            }
+            lt++;
+        }
+    }
+
+    public void 모든아나그램찾기() {
+        String T = "abc";
+        String S = "bacaAacba";
+        char[] SArray = S.toCharArray();
+
+        HashMap<Character, Integer> TMap = new HashMap<>();
+        HashMap<Character, Integer> SMap = new HashMap<>();
+
+        for(char X : T.toCharArray()) {
+            TMap.put(X, TMap.getOrDefault(X, 0)+1);
+        }
+
+        for(int i = 0 ; i < T.toCharArray().length - 1;i++) {
+            SMap.put(SArray[i], SMap.getOrDefault(SArray[i], 0) + 1);
+        }
+
+        int resultCount = 0;
+        int lt = 0;
+        for(int rt = T.toCharArray().length -1; rt < SArray.length; rt++) {
+            SMap.put(SArray[rt], SMap.getOrDefault(SArray[rt], 0)+1);
+            if(SMap.equals(TMap)) {
+                resultCount++;
+            }
+            SMap.put(SArray[lt], SMap.getOrDefault(SArray[lt], 0)-1);
+            if(SMap.get(SArray[lt]) == 0) {
+                SMap.remove(SArray[lt]);
+            }
+            lt++;
+        }
+
+        System.out.println(resultCount);
+    }
+
+    public void K번째큰수() {
 
 
     }
