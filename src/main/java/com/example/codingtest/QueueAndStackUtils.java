@@ -1,9 +1,6 @@
 package com.example.codingtest;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class QueueAndStackUtils {
 
@@ -158,8 +155,32 @@ public class QueueAndStackUtils {
             }
         }
         System.out.println(resultCount);
-
     }
+
+
+    public void 공주구하기() {
+        int K = 3;
+        int num = 8;
+
+        ArrayList<Integer> list = new ArrayList<>();
+        for(int i = 1; i <= num ; i++) {
+            list.add(i);
+        }
+
+        Queue<Integer> queue = new LinkedList<>(list);
+        int count = 1;
+        while(queue.size() > 1) {
+            if(count == K) {
+                queue.poll();
+                count = 1;
+            } else {
+                queue.offer(queue.poll());
+                count++;
+            }
+        }
+        System.out.println(queue.peek());
+    }
+
 
 
 

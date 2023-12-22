@@ -126,7 +126,8 @@ public class CommandApiApplication {
         //queueAndStackUtils.크레인인형뽑기();
 
         //queueAndStackUtils.후위식연산();
-        queueAndStackUtils.쇠막대기();
+        //queueAndStackUtils.쇠막대기();
+        queueAndStackUtils.공주구하기();
     }
 
 }
