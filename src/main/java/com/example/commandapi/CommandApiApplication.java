@@ -123,8 +123,10 @@ public class CommandApiApplication {
         QueueAndStackUtils queueAndStackUtils = new QueueAndStackUtils();
         //queueAndStackUtils.올바은괄호();
         //queueAndStackUtils.소괄호사이문자제거();
-        queueAndStackUtils.크레인인형뽑기();
+        //queueAndStackUtils.크레인인형뽑기();
 
+        //queueAndStackUtils.후위식연산();
+        queueAndStackUtils.쇠막대기();
     }
 
 }
