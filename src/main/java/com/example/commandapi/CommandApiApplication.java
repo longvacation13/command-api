@@ -118,11 +118,12 @@ public class CommandApiApplication {
         //hashUtils.모든아나그램찾기();
 
         //hashUtils.K번째큰수();
-        hashUtils.BadHashExample();
+        //hashUtils.BadHashExample();
 
-
-
-
+        QueueAndStackUtils queueAndStackUtils = new QueueAndStackUtils();
+        //queueAndStackUtils.올바은괄호();
+        //queueAndStackUtils.소괄호사이문자제거();
+        queueAndStackUtils.크레인인형뽑기();
 
     }
 
