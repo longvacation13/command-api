@@ -127,7 +127,12 @@ public class CommandApiApplication {
 
         //queueAndStackUtils.후위식연산();
         //queueAndStackUtils.쇠막대기();
-        queueAndStackUtils.공주구하기();
+        //queueAndStackUtils.공주구하기();
+
+        SortingExampleUtils sortingExampleUtils = new SortingExampleUtils();
+        //sortingExampleUtils.선택정렬();
+        //sortingExampleUtils.버블정렬();
+        sortingExampleUtils.삽입정렬();
     }
 
 }
