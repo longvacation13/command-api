@@ -229,6 +229,10 @@ public class StringExampleUtils {
         System.out.println(str.toString());
     }
 
+    /** 팰린드롬
+     *
+     * @param words
+     */
     public void leehyolee(String words) {
 
         // 1. 소문자로 변환

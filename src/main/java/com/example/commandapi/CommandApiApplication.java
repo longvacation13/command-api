@@ -132,7 +132,13 @@ public class CommandApiApplication {
         SortingExampleUtils sortingExampleUtils = new SortingExampleUtils();
         //sortingExampleUtils.선택정렬();
         //sortingExampleUtils.버블정렬();
-        sortingExampleUtils.삽입정렬();
+        //sortingExampleUtils.삽입정렬();
+        //sortingExampleUtils.LRU알고리즘();
+        //sortingExampleUtils.버블정렬연습();
+        //sortingExampleUtils.이분검색();
+        //sortingExampleUtils.결정알고리즘();
+        sortingExampleUtils.마구간정하기();
+
     }
 
 }
