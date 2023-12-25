@@ -2,6 +2,8 @@ package com.example.commandapi;
 
 
 import com.example.codingtest.*;
+import com.example.utilClass.dfs.Dfs부분집합구하기Class;
+import com.example.utilClass.dfs.Dfs이진트리순회Class;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.*;
@@ -139,7 +141,13 @@ public class CommandApiApplication {
         RecuresiveExample recuresiveExample = new RecuresiveExample();
         //recuresiveExample.DFSExample1(238);
 
+        // 이진트리순회(DFS)
+        Dfs이진트리순회Class n1 = new Dfs이진트리순회Class();
+        //n1.DFSTest();
 
+
+        Dfs부분집합구하기Class n2 = new Dfs부분집합구하기Class(3);
+        n2.N의부분집합출력();
 
 
 
