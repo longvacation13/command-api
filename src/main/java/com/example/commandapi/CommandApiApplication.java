@@ -4,11 +4,7 @@ package com.example.commandapi;
 import com.example.codingtest.*;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.awt.*;
 import java.io.*;
-import java.util.*;
-import java.util.List;
-import java.util.stream.Stream;
 
 @SpringBootApplication(scanBasePackages = "com.example.*")
 public class CommandApiApplication {
@@ -137,7 +133,15 @@ public class CommandApiApplication {
         //sortingExampleUtils.버블정렬연습();
         //sortingExampleUtils.이분검색();
         //sortingExampleUtils.결정알고리즘();
-        sortingExampleUtils.마구간정하기();
+        //sortingExampleUtils.마구간정하기();
+
+
+        RecuresiveExample recuresiveExample = new RecuresiveExample();
+        //recuresiveExample.DFSExample1(238);
+
+
+
+
 
     }
 
