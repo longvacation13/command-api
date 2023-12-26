@@ -2,6 +2,7 @@ package com.example.commandapi;
 
 
 import com.example.codingtest.*;
+import com.example.utilClass.bfs.BfsClass;
 import com.example.utilClass.dfs.Dfs부분집합구하기Class;
 import com.example.utilClass.dfs.Dfs이진트리순회Class;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -147,7 +148,13 @@ public class CommandApiApplication {
 
 
         Dfs부분집합구하기Class n2 = new Dfs부분집합구하기Class(3);
-        n2.N의부분집합출력();
+        //n2.N의부분집합출력();
+
+//        BfsClass b1 = new BfsClass();
+//        b1.Bfstest();
+
+        StringExampleUtils s1 = new StringExampleUtils();
+        s1.longestPalindromeNew("babad");
 
 
 

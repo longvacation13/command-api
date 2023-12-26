@@ -238,6 +238,7 @@ public class StringExampleUtils {
         // 1. 소문자로 변환
         words = words.toLowerCase();
 
+
         String regex1 = "[^a-zA-Z0-9가-힣]"; // 특수문자제외
         String regex2 = "[^a-zA-Z가-힣]";    // 특수문자제외
 
@@ -250,6 +251,7 @@ public class StringExampleUtils {
         // 역방향 문자
         StringBuffer sb = new StringBuffer(words);
         sb = sb.reverse();
+
 
         if(sb.toString().equals(words)) {
             System.out.println("YES");
@@ -384,4 +386,64 @@ public class StringExampleUtils {
     }
 
 
+    /**
+     * 팰린드롬 - > 시간 복잡도 O(N^2)
+     * @param s
+     * @return
+     */
+    public String longestPalindrome(String s) {
+
+        String answer = "";
+        int maxLength = 0;
+        StringBuilder sb = new StringBuilder();
+
+
+        for(int i = 0; i < s.length() - 1; i++) {
+            sb.append(s.charAt(i));
+            for(int j = 1+i; j < s.length(); j++) {
+                sb.append(s.charAt(j));
+                StringBuilder rsb = new StringBuilder(sb).reverse(); // reverse
+                if(sb.toString().equals(rsb.toString())) {
+                    if(sb.toString().length() > maxLength) {
+                        answer = sb.toString();
+                        maxLength = sb.toString().length();
+                    }
+                }
+            }
+            sb.setLength(0);
+        }
+        return answer;
+    }
+
+    /**
+     * 시간복잡도 O(N) 팰린드롬
+     * @param s
+     * @return
+     * @example babad
+     */
+    public void longestPalindromeNew(String s) {
+        String answer = "";
+        for(int i = 0; i < s.length(); i++) {
+            // 홀수길이
+            String p1 = palindromeCenter(s, i, i);
+            if (p1.length() > answer.length()) {
+                answer = p1;
+            }
+
+            // 짝수 길이 팰린드롬 체크
+            String p2 = palindromeCenter(s, i, i + 1);
+            if (p2.length() > answer.length()) {
+                answer = p2;
+            }
+        }
+        System.out.println(answer);
+    }
+
+    public String palindromeCenter(String s, int lt, int rt) {
+        while(lt >= 0 && rt < s.length() && s.charAt(lt) == s.charAt(rt)) {
+            lt--;
+            rt++;
+        }
+        return s.substring(lt + 1, rt);
+    }
 }
