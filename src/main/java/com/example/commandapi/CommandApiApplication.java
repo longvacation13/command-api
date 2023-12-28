@@ -5,6 +5,7 @@ import com.example.codingtest.*;
 import com.example.utilClass.bfs.BfsClass;
 import com.example.utilClass.dfs.Dfs부분집합구하기Class;
 import com.example.utilClass.dfs.Dfs이진트리순회Class;
+import com.example.utilClass.dynamic.부분증가수열;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.*;
@@ -155,6 +156,9 @@ public class CommandApiApplication {
 
         StringExampleUtils s1 = new StringExampleUtils();
         s1.longestPalindromeNew("babad");
+
+        부분증가수열 a1 = new 부분증가수열();
+        a1.부분증가수열테스트();
 
 
 
