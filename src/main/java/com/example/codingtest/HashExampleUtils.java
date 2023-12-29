@@ -44,6 +44,10 @@ public class HashExampleUtils {
             }
         }
 
+        List<Integer> values = new ArrayList<>(map.values());
+
+        Collections.sort(values, Collections.reverseOrder());
+
         System.out.println(반장);
     }
 

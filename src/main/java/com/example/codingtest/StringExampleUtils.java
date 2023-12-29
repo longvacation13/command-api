@@ -244,9 +244,15 @@ public class StringExampleUtils {
 
         // 2. 문자만 남기고 다 제거
         words = words.replaceAll(regex2, "");
+        String[] nums = {"12312","!23123"};
+
+        HashMap<Integer, HashSet<Integer>> map = new HashMap<>();
+        HashMap<HashSet<Integer>, Integer> map2 = new HashMap<>();
 
         // 정방향 문자 
         System.out.println(words);
+        HashSet<Integer> set = new HashSet<>();
+
 
         // 역방향 문자
         StringBuffer sb = new StringBuffer(words);

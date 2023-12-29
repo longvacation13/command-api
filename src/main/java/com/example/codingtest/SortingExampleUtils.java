@@ -117,7 +117,7 @@ public class SortingExampleUtils {
      */
     public void LRU알고리즘() {
         Queue<Integer> q = new LinkedList<>();
-        
+
         int arr[] = {1, 2, 3, 2, 6, 2, 3, 5, 7};
 
         int[] c = new int[5];
@@ -315,6 +315,28 @@ public class SortingExampleUtils {
         int C = 3; // 말의 갯수
 
     }
+
+
+
+    // 삽입정렬 문제풀기
+     public void 삽입정렬example() {
+        int[] arr = {99, 2, 33, 11, 1, 50, 30, 60};
+
+        for(int i = 0; i < arr.length; i++) {
+            int tmp = arr[i];
+            for(int j=i-1; j >= 0; j--) {
+                if(arr[j] > arr[j+1]) {
+                    arr[j+1] = arr[j];
+                    arr[j] = tmp;
+                }
+            }
+        }
+
+        for(int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]+" ");
+        }
+
+     }
 
 
 
