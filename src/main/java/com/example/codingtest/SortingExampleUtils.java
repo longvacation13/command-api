@@ -1,6 +1,8 @@
 package com.example.codingtest;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class SortingExampleUtils {
 
@@ -114,6 +116,8 @@ public class SortingExampleUtils {
      * 핵심 : c[i] = c[i-1];
      */
     public void LRU알고리즘() {
+        Queue<Integer> q = new LinkedList<>();
+        
         int arr[] = {1, 2, 3, 2, 6, 2, 3, 5, 7};
 
         int[] c = new int[5];

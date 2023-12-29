@@ -5,6 +5,7 @@ import com.example.codingtest.*;
 import com.example.utilClass.bfs.BfsClass;
 import com.example.utilClass.dfs.Dfs부분집합구하기Class;
 import com.example.utilClass.dfs.Dfs이진트리순회Class;
+import com.example.utilClass.dynamic.LongestSubString;
 import com.example.utilClass.dynamic.부분증가수열;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -155,13 +156,16 @@ public class CommandApiApplication {
 //        b1.Bfstest();
 
         StringExampleUtils s1 = new StringExampleUtils();
-        s1.longestPalindromeNew("babad");
+        //s1.longestPalindromeNew("babad");
 
         부분증가수열 a1 = new 부분증가수열();
-        a1.부분증가수열테스트();
+        //a1.부분증가수열테스트();
 
 
-
+        LongestSubString l1 = new LongestSubString();
+        ///l1.test();
+        ReverseInteger r1 = new ReverseInteger();
+        r1.reverse(1);
     }
 
 }
