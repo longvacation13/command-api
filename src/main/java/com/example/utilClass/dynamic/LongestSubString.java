@@ -10,7 +10,6 @@ public class LongestSubString {
     public void test() {
         String s = "pwwkew";
         //String s = "dvdf";
-        Queue<Integer> q1 = new LinkedList<>();
 
         HashMap<Character, Integer> map = new HashMap<>();
         int maxLength = 0;

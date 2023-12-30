@@ -23,14 +23,13 @@ public class Dfs이진트리순회Class {
             return;
         }
         else {
-            // System.out.println(root.da ta); // 전위순회
+            // System.out.println(root.data); // 전위순회
             DFS(root.lt);
             System.out.println(root.data);
             DFS(root.rt);
         }
     }
-
-    public void DFSTest() {
+     public void DFSTest() {
         Dfs이진트리순회Class tree = new Dfs이진트리순회Class();
         tree.root           = new Node(1);
         tree.root.lt        = new Node(2);
