@@ -1,9 +1,9 @@
 package com.example.utilClass.dfs.dfsTest1;
 
 public class Node {
-    int data;
-    Node lt;
-    Node rt;
+    public int data;
+    public Node lt;
+    public Node rt;
 
     public Node(int data) {
         this.data = data;

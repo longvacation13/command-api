@@ -138,7 +138,6 @@ public class PointerExampleUtils {
 
     public void 연속된자연수의합(int n) {
 
-
         int lt = 1;
         int sum = 0;
         int resultCount = 0;

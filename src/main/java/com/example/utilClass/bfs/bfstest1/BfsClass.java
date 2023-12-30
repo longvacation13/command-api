@@ -1,4 +1,4 @@
-package com.example.utilClass.bfs;
+package com.example.utilClass.bfs.bfstest1;
 
 import java.util.LinkedList;
 import java.util.Queue;
