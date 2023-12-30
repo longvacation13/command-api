@@ -1,4 +1,4 @@
-package com.example.utilClass.dfs;
+package com.example.utilClass.dfs.dfsTest2;
 
 /**
  * 자연수 n 이 주어지면 1부터 N까지의 원소를 갖는 집합의 부분집합을 모두 출력하는 프로그램
