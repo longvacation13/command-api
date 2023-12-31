@@ -1,6 +1,7 @@
 package com.example.commandapi;
 
 
+import com.example.codingtest.StringExampleUtils;
 import com.example.utilClass.bfstest2.BfsClassTest2;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.io.*;import java.util.Stack;
@@ -9,8 +10,12 @@ import java.io.*;import java.util.Stack;
 public class MainApplication {
     public static void main(String[] args) throws IOException {
 
-        BfsClassTest2 b1 = new BfsClassTest2();
-        b1.test();
+        //BfsClassTest2 b1 = new BfsClassTest2();
+        //b1.test();
+
+        StringExampleUtils s1 = new StringExampleUtils();
+        s1.StringToInteger();
+
 
     }
 

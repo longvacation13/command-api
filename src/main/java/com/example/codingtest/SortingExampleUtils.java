@@ -339,5 +339,10 @@ public class SortingExampleUtils {
      }
 
 
+     //
+     public void 최소요금계산기() {
+        
+     }
+
 
 }

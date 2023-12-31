@@ -452,4 +452,45 @@ public class StringExampleUtils {
         }
         return s.substring(lt + 1, rt);
     }
+
+    // leetcode medium test : https://leetcode.com/problems/string-to-integer-atoi/
+    public int StringToInteger() {
+        String s = "aaaaa";
+        // 1. white space -> 무시함
+        // 2. ?
+        // 3. digit 아닌거 나올때까지 읽음
+        // 4. 123 -> 12로 0032는 32로, 숫자가 읽히기 않을 경우 0으로
+        // 5. 32bit 범위에 포함되지 않을 경우 (MIN 또는 MAX_VALUE로)
+        if (s == null || s.length() == 0) return 0;
+
+        int index = 0, sign = 1, total = 0;
+
+        // Step 1: Discard Whitespaces
+        while (index < s.length() && s.charAt(index) == ' ') {
+            index++;
+        }
+
+        // Step 2: Handle signs
+        if (index < s.length() && (s.charAt(index) == '+' || s.charAt(index) == '-')) {
+            sign = s.charAt(index) == '+' ? 1 : -1;
+            index++;
+        }
+
+        // Step 3: Convert number and avoid overflow
+        while (index < s.length()) {
+            int digit = s.charAt(index) - '0';
+            if (digit < 0 || digit > 9) break;
+
+            // Check for overflow
+            if (total > Integer.MAX_VALUE / 10 ||
+                    (total == Integer.MAX_VALUE / 10 && digit > Integer.MAX_VALUE % 10)) {
+                return sign == 1 ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+            }
+            total = 10 * total + digit;
+            index++;
+        }
+
+        return total * sign;
+
+    }
 }
