@@ -455,7 +455,7 @@ public class StringExampleUtils {
 
     // leetcode medium test : https://leetcode.com/problems/string-to-integer-atoi/
     public int StringToInteger() {
-        String s = "aaaaa";
+        String s = "-2147483648";
         // 1. white space -> 무시함
         // 2. ?
         // 3. digit 아닌거 나올때까지 읽음
@@ -475,6 +475,8 @@ public class StringExampleUtils {
             sign = s.charAt(index) == '+' ? 1 : -1;
             index++;
         }
+
+
 
         // Step 3: Convert number and avoid overflow
         while (index < s.length()) {

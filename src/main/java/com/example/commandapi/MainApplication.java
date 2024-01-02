@@ -1,6 +1,7 @@
 package com.example.commandapi;
 
 
+import com.example.codingtest.CpCodingTest;
 import com.example.codingtest.StringExampleUtils;
 import com.example.utilClass.bfstest2.BfsClassTest2;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,9 +14,13 @@ public class MainApplication {
         //BfsClassTest2 b1 = new BfsClassTest2();
         //b1.test();
 
-        StringExampleUtils s1 = new StringExampleUtils();
-        s1.StringToInteger();
+//        StringExampleUtils s1 = new StringExampleUtils();
+//        System.out.println(s1.StringToInteger());
+        //System.out.println("Integer MAX VALUE : "+Integer.MAX_VALUE);
+        //System.out.println("Integer MIN VALUE : "+Integer.MIN_VALUE);
 
+        CpCodingTest test = new CpCodingTest();
+        test.test();
 
     }
 
