@@ -12,32 +12,33 @@ public class LinkedListExampleUtils {
      }
 
 
-    /**
-     * LinkedList
-     */
-     public void LinkedListNodeTest() {
-         Scanner sc = new Scanner(System.in);
-         ListNode l1 = new ListNode();
-         ListNode dummyNode = l1;
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        // headNode ( root )
+        ListNode resultNode = new ListNode();
+        ListNode curNode = resultNode;
+        int carry = 0;
 
-         int index = 0;
-         while(index < 5) {
-             dummyNode.next = new ListNode(sc.nextInt());
-             dummyNode = dummyNode.next;
-             index++;
-         }
+        while(l1 != null || l2 != null) {
 
-         printLinkedList(l1.next);
-     }
-     // 10 20 30 40 50
+            int x = l1 != null ? l1.val : 0;
+            int y = l2 != null ? l2.val : 0;
 
+            int sum = x + y + carry;
+            curNode.next = new ListNode(sum % 10);
+            carry = sum / 10;
 
-    public void printLinkedList(ListNode l) {
-         while(l != null) {
-             System.out.println(l.val);
-             l = l.next;
-         }
+            if(l1 != null) l1 = l1.next;
+            if(l2 != null) l2 = l2.next;
+            curNode = curNode.next;
+        }
+
+        if(carry > 0) {
+            curNode.next = new ListNode(carry);
+        }
+
+        return resultNode.next;
     }
+
 
 }
 

@@ -166,8 +166,8 @@ public class LeetCodeTest {
             int lt = i+1;
             int rt = nums.length - 1;
             while(lt < rt) {
-                if(i == lt) { lt++; continue; }
-                if(i == rt) { rt--; continue; }
+//                if(i == lt) { lt++; continue; }
+//                if(i == rt) { rt--; continue; }
                 int sum = nums[i] + nums[lt] + nums[rt];
 
                 if(sum == 0) {
@@ -187,6 +187,4 @@ public class LeetCodeTest {
         List<List<Integer>> list = hash.stream().collect(Collectors.toList());
         return list;
     }
-
-
 }
