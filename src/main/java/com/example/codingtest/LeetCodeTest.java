@@ -108,4 +108,85 @@ public class LeetCodeTest {
     }
 
 
+    public void threeSum() {
+        //int[] num = {2, 1, 0, -1, -1, -4};
+        HashSet<List<Integer>> set = new HashSet<>();
+
+        int[] nums = {-4, 1, -1, 0, -1, 2}; // -4, -1, -1, 0, 1, 2
+        //int[] nums = {1, 2, -2, -1};
+        Arrays.sort(nums);
+
+        int lt = 0;
+        int rt = nums.length-1;
+
+        while(lt < rt-1) {
+            int sum = nums[lt] + nums[rt];
+
+            if(sum + nums[lt+1] == 0) {
+                //System.out.println(nums[lt]+","+nums[rt]+","+nums[lt+1]);
+                set.add(Arrays.asList(nums[lt], nums[rt], nums[lt+1]));
+                rt--;
+                continue;
+            }
+
+            if(sum + nums[rt-1] == 0) {
+                //System.out.println(nums[lt]+","+nums[rt]+","+nums[rt-1]);
+                set.add(Arrays.asList(nums[lt], nums[rt], nums[rt-1]));
+                lt++;
+                continue;
+            }
+
+            if(sum+nums[lt+1] < 0) lt++;
+            if(sum+nums[rt-1] > 0) rt--;
+
+        }
+
+        HashSet<Integer> test = new HashSet<>();
+
+
+
+
+
+        System.out.println(set.stream().collect(Collectors.toList()));
+        int a = 1;
+        int b = 2;
+    }
+
+    public List<List<Integer>> threeSum(int[] nums) {
+        // 최적화 요소
+        // 1) 현재 값과 이전값이 같을 경우 -> 조합은 이미 결정되었으니 넘어감
+
+        HashSet<List<Integer>> hash = new HashSet<>();
+        Arrays.sort(nums);
+
+        for(int i = 0; i < nums.length-2; i++) {
+
+            if(i > 0 && nums[i] == nums[i-1]) continue;
+
+            int lt = i+1;
+            int rt = nums.length - 1;
+            while(lt < rt) {
+                if(i == lt) { lt++; continue; }
+                if(i == rt) { rt--; continue; }
+                int sum = nums[i] + nums[lt] + nums[rt];
+
+                if(sum == 0) {
+                    List<Integer> dto = Arrays.asList(nums[i], nums[lt], nums[rt]);
+                    Collections.sort(dto);
+                    hash.add(dto);
+                    lt++;
+                    rt--;
+                } else if(sum > 0) {
+                    rt--;
+                } else if(sum < 0) {
+                    lt++;
+                }
+            }
+        }
+
+        List<List<Integer>> list = hash.stream().collect(Collectors.toList());
+        return list;
+    }
+
+
 }
