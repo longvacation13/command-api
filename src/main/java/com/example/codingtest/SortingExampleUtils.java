@@ -1,8 +1,5 @@
 package com.example.codingtest;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class SortingExampleUtils {
 
@@ -344,5 +341,44 @@ public class SortingExampleUtils {
         
      }
 
+     public void 좌표정렬() {
+        List<Point> list = new ArrayList<>();
+        int[][] arr = {{2, 7},{1, 3},{2, 5},{3, 6}};
+        for(int i = 0; i < arr.length; i++) {
+            list.add(new Point(arr[i][0], arr[i][1]));
+        }
+        Collections.sort(list);
+        for(int i = 0; i < list.size(); i++) {
+            System.out.print("X : "+list.get(i).x+" / ");
+            System.out.print("Y : "+list.get(i).y);
+            System.out.println();
+        }
+        /*List<Integer> li = new ArrayList<>();
+        li.add(1);
+        li.add(2);
+        li.add(3);
+        System.out.println(li);*/
+     }
 
+}
+
+class Point implements Comparable<Point> {
+    int x, y;
+    public Point(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    @Override
+    public int compareTo(Point o) {
+        // 크면 양수
+        // 작으면 음수
+        // 같으면 0
+        if(this.x == o.x) {
+            return this.y - o.y;
+        }
+        else {
+            return this.x - o.x;
+        }
+    }
 }

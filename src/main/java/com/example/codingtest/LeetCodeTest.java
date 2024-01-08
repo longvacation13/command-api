@@ -187,4 +187,43 @@ public class LeetCodeTest {
         List<List<Integer>> list = hash.stream().collect(Collectors.toList());
         return list;
     }
+
+    public int threeSumClosest(int[] nums, int target) {
+        // -4, -1, 1, 2 -- target : 1
+        Arrays.sort(nums);
+        int minDistance = Integer.MAX_VALUE;
+        int result = 0;
+
+
+        for(int i = 0; i < nums.length - 2; i++) {
+
+            if(i > 0 && nums[i] == nums[i-1]) {
+                continue;
+            }
+
+            int lt = i+1;
+            int rt = nums.length - 1;
+
+            while(lt < rt) {
+                int sum = nums[i] + nums[lt] + nums[rt];
+                int distance = Math.abs(sum - target);
+
+                if(distance < minDistance) {
+                    minDistance = distance;
+                    result = sum;
+                }
+
+                if(sum > target) {
+                    rt--;
+                } else if (sum < target) {
+                    lt++;
+                } else {
+                    result = sum;
+                    return result;
+                }
+
+            }
+        }
+        return result;
+    }
 }

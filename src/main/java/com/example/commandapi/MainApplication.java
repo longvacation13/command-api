@@ -3,6 +3,7 @@ package com.example.commandapi;
 
 import com.example.codingtest.CpCodingTest;
 import com.example.codingtest.LeetCodeTest;
+import com.example.codingtest.SortingExampleUtils;
 import com.example.codingtest.StringExampleUtils;
 import com.example.utilClass.bfstest2.BfsClassTest2;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -27,7 +28,10 @@ public class MainApplication {
         LeetCodeTest test = new LeetCodeTest();
         //test.ContainerWithMostWater();
         //test.IntegerToRoman();
-        test.threeSum();
+        //test.threeSum();
+
+        SortingExampleUtils s1 = new SortingExampleUtils();
+        s1.좌표정렬();
 
     }
 
