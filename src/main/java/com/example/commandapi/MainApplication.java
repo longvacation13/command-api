@@ -1,13 +1,15 @@
 package com.example.commandapi;
 
 
-import com.example.codingtest.CpCodingTest;
-import com.example.codingtest.LeetCodeTest;
-import com.example.codingtest.SortingExampleUtils;
-import com.example.codingtest.StringExampleUtils;
+import com.example.codingtest.*;
 import com.example.utilClass.bfstest2.BfsClassTest2;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import java.io.*;import java.util.Stack;
+import java.io.*;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Stack;
 
 @SpringBootApplication(scanBasePackages = "com.example.*")
 public class MainApplication {
@@ -29,9 +31,21 @@ public class MainApplication {
         //test.ContainerWithMostWater();
         //test.IntegerToRoman();
         //test.threeSum();
+        //test.letterCombinations();
 
         SortingExampleUtils s1 = new SortingExampleUtils();
-        s1.좌표정렬();
+        //s1.좌표정렬();
+
+        GreedyExampleUtils g1 = new GreedyExampleUtils();
+        //g1.씨름선수();
+
+
+        LetterCombinations l1 = new LetterCombinations();
+        //l1.test();
+
+        RecuresiveExample r1 = new RecuresiveExample();
+        int a = r1.팩토리얼(10);
+        System.out.println(a); 
 
     }
 

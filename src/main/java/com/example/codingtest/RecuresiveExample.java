@@ -15,6 +15,7 @@ public class RecuresiveExample {
     }
 
     public void DFS피보나치(int N) {
+
     }
 
 
@@ -24,5 +25,13 @@ public class RecuresiveExample {
      * 후위순회 : 왼 -> 오 -> 부모
      */
 
-    
+
+    public int 팩토리얼(int N) {
+        if(N == 1) {
+            return 1;
+        } else {
+            return N * 팩토리얼(N-1);
+        }
+    }
+
 }

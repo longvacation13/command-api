@@ -226,4 +226,72 @@ public class LeetCodeTest {
         }
         return result;
     }
+
+
+    public void letterCombinations() {
+        String digits = "23";
+
+        Map<Integer, List<Character>> map = new HashMap<>();
+        map.put(2, Arrays.asList('a','b','c'));
+        map.put(3, Arrays.asList('d','e','f'));
+        map.put(4, Arrays.asList('g','h','i'));
+        map.put(5, Arrays.asList('j','k','l'));
+        map.put(6, Arrays.asList('m','n','o'));
+        map.put(7, Arrays.asList('p','q','r','s'));
+        map.put(8, Arrays.asList('t','u','v'));
+        map.put(9, Arrays.asList('w','x','y','z'));
+
+        List<List<Character>> list = new ArrayList<>();
+
+        for(Character X : digits.toCharArray()) {
+            list.add(map.get(Character.getNumericValue(X)));
+        }
+
+        System.out.println(list);
+
+
+//        int[][] arr = new int[list.size()][];
+//        for(int i = 0; i < list.size(); i++) {
+//            List<Character> l = list.get(i);
+//            arr[i] = new int[l.size()]; // 2차원 배열은 배열의 배열임. arr[i] 즉 i번째 배열에 배열을 할당한다는 의미임.
+//            for(int j = 0; j < l.size(); j++) {
+//                arr[i][j] = l.get(j);
+//            }
+//        }
+    }
+
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(nums); // -2, -1, 0, 0, 1, 2
+
+        long newTarget = 0;
+        for(int i = 0; i < nums.length - 3; i++) {
+            if(i > 0 && nums[i] == nums[i-1]) continue;
+            newTarget = (long) target - nums[i];
+            for(int j = i+1; j < nums.length - 2; j++) {
+                if(j > i+1 && nums[j] == nums[j-1]) continue;
+                int t = nums[j];
+                int lt = j+1;
+                int rt = nums.length - 1;
+                while(lt < rt) {
+                    long sum = (long)t + nums[lt] + nums[rt];
+                    if(sum == newTarget) {
+                        List<Integer> list = Arrays.asList(t, nums[lt], nums[rt], nums[i]);
+                        result.add(list);
+                        while(lt < rt && nums[lt] == nums[lt+1]) { lt++; }
+                        while(lt < rt && nums[rt] == nums[rt-1]) { rt--; }
+                        lt++;
+                        rt--;
+                    } else if(sum > newTarget) {
+                        rt--;
+                    } else if(sum < newTarget) {
+                        lt++;
+                    }
+                }
+            }
+        }
+
+        return result;
+    }
+
 }
