@@ -360,6 +360,69 @@ public class SortingExampleUtils {
         System.out.println(li);*/
      }
 
+     public void mergeSort() {
+        int[] arr = {12, 11, 13, 5, 6, 7};
+        int[] tmp = new int[arr.length];
+
+        System.out.println("정렬 전 배열 :");
+
+        for(int a : arr) {
+            System.out.println(a+", ");
+        }
+         mergeSort(arr);
+
+     }
+
+     private static void mergeSort(int[] arr) {
+         if (arr.length <= 1) {
+             return; // 배열이 이미 정렬되어 있거나 길이가 1 이하인 경우 리턴
+         }
+
+         // 배열을 반으로 나누기 위한 중간 지점 계산
+         int middle = arr.length / 2;
+
+         // 두 개의 하위 배열을 생성
+         int[] left = new int[middle];
+         int[] right = new int[arr.length - middle];
+
+         // 원래 배열을 두 개의 하위 배열로 복사
+         System.arraycopy(arr, 0, left, 0, middle);
+         System.arraycopy(arr, middle, right, 0, arr.length - middle);
+
+         // 두 개의 하위 배열을 재귀적으로 정렬
+         mergeSort(left);
+         mergeSort(right);
+
+         // 정렬된 두 개의 하위 배열을 병합
+         merge(arr, left, right);
+
+     }
+
+
+    // 두 개의 하위 배열을 병합하는 함수
+    static void merge(int[] arr, int[] left, int[] right) {
+        int i = 0, j = 0, k = 0;
+
+        // left와 right 배열을 비교하면서 병합
+        while (i < left.length && j < right.length) {
+            if (left[i] < right[j]) {
+                arr[k++] = left[i++];
+            } else {
+                arr[k++] = right[j++];
+            }
+        }
+
+        // 남은 요소들을 복사
+        while (i < left.length) {
+            arr[k++] = left[i++];
+        }
+
+        while (j < right.length) {
+            arr[k++] = right[j++];
+        }
+    }
+
+
 }
 
 class Point implements Comparable<Point> {
