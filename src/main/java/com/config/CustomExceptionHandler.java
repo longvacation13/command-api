@@ -1,10 +1,12 @@
 package com.config;
-
-import org.springframework.http.HttpHeaders;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 // CustomExceptionHandler 클래스는
@@ -14,9 +16,22 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
     // 예외 메시지와 HTTP 상태 코드를 클라이언트에게 반환합니다.
     @ExceptionHandler(CustomException.class)
-    public ResponseEntity<Object> handleCustomException(CustomException ex, WebRequest request) {
-        String bodyOfResponse = ex.getMessage();
-        return handleExceptionInternal(ex, bodyOfResponse, new HttpHeaders(), ex.getStatus(), request);
+    public ResponseEntity<Object> handleCustomException(CustomException ex) {
+        ErrorResponse errorResponse = new ErrorResponse(ex.getStatus(), ex.getMessage());
+        return new ResponseEntity<>(errorResponse, ex.getStatus());
     }
 
+    // ErrorResponse는 클라이언트에게 반환할 에러 정보를 담는 클래스입니다.
+    // 여기서는 상태 코드와 메시지를 포함합니다.
+
+    @Getter
+    private static class ErrorResponse {
+        private HttpStatus status;
+        private String message;
+
+        public ErrorResponse(HttpStatus status, String message) {
+            this.status = status;
+            this.message = message;
+        }
+    }
 }
