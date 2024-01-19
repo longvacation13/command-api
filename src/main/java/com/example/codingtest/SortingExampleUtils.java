@@ -106,8 +106,6 @@ public class SortingExampleUtils {
     }
 
 
-
-
     /**
      * LRU 알고리즘
      * 핵심 : c[i] = c[i-1];
@@ -147,15 +145,6 @@ public class SortingExampleUtils {
 
 
     }
-//
-//    // 히트발생지점부터 정리
-//                    for(int k=j; k > 0; k--) {
-//        c[k] = c[k-1];
-//    }
-//    c[0] = tmp;
-//    arrSystemOut(c);
-//                    break;
-
 
     /**
      * array를 받으면 순서대로 sys out 해준다.
@@ -369,58 +358,86 @@ public class SortingExampleUtils {
         for(int a : arr) {
             System.out.println(a+", ");
         }
-         mergeSort(arr);
+
+        int l = 0;
+        int r = arr.length - 1;
+        mergeSort(arr, l, r);
 
      }
 
-     private static void mergeSort(int[] arr) {
-         if (arr.length <= 1) {
-             return; // 배열이 이미 정렬되어 있거나 길이가 1 이하인 경우 리턴
-         }
+     private static void mergeSort(int[] arr, int l, int r) {
+        if(l < r) {
+            int m = ( l + r ) / 2;
+            mergeSort(arr, l, m);
+            mergeSort(arr, m+1, r);
+            merge(arr, l, m, r);
+        }
+     }
 
-         // 배열을 반으로 나누기 위한 중간 지점 계산
-         int middle = arr.length / 2;
+     private static void merge(int[] arr, int l, int m, int r) {
+            int n1 = m - l + 1;     // 왼쪽 배열의 크기
+            int n2 = r - m;         // 오른쪽 배열의 크기
+            int[] L = new int[n1];
+            int[] R = new int[n2];
 
-         // 두 개의 하위 배열을 생성
-         int[] left = new int[middle];
-         int[] right = new int[arr.length - middle];
+            // 데이터를 임시배열에 복사
+            for(int i = 0; i < n1; ++i) {
+                L[i] = arr[l + i];      // 왼쪽 배열을 복사
+            }
+            for(int j = 0; j < n2; ++j) {
+                R[j] = arr[m + 1 +j];   // 오른쪽 배열을 복사
+            }
 
-         // 원래 배열을 두 개의 하위 배열로 복사
-         System.arraycopy(arr, 0, left, 0, middle);
-         System.arraycopy(arr, middle, right, 0, arr.length - middle);
+            int i = 0, j=0;
+            int k = l;
+            while(i < n1 && j < n2) {
+                if(L[i] < R[j]) {
+                    arr[k] = L[i];
+                    i++;
+                } else {
+                    arr[k] = R[j];
+                    j++;
+                }
+                k++;
+            }
 
-         // 두 개의 하위 배열을 재귀적으로 정렬
-         mergeSort(left);
-         mergeSort(right);
-
-         // 정렬된 두 개의 하위 배열을 병합
-         merge(arr, left, right);
+            // 나머지 요소들을 원본 배열에 복사
+            while (i < n1) {
+                arr[k] = L[i];
+                i++;
+                k++;
+            }
+            while (j < n2) {
+                arr[k] = R[j];
+                j++;
+                k++;
+            }
 
      }
 
 
     // 두 개의 하위 배열을 병합하는 함수
-    static void merge(int[] arr, int[] left, int[] right) {
-        int i = 0, j = 0, k = 0;
-
-        // left와 right 배열을 비교하면서 병합
-        while (i < left.length && j < right.length) {
-            if (left[i] < right[j]) {
-                arr[k++] = left[i++];
-            } else {
-                arr[k++] = right[j++];
-            }
-        }
-
-        // 남은 요소들을 복사
-        while (i < left.length) {
-            arr[k++] = left[i++];
-        }
-
-        while (j < right.length) {
-            arr[k++] = right[j++];
-        }
-    }
+//    static void merge(int[] arr, int[] left, int[] right) {
+//        int i = 0, j = 0, k = 0;
+//
+//        // left와 right 배열을 비교하면서 병합
+//        while (i < left.length && j < right.length) {
+//            if (left[i] < right[j]) {
+//                arr[k++] = left[i++];
+//            } else {
+//                arr[k++] = right[j++];
+//            }
+//        }
+//
+//        // 남은 요소들을 복사
+//        while (i < left.length) {
+//            arr[k++] = left[i++];
+//        }
+//
+//        while (j < right.length) {
+//            arr[k++] = right[j++];
+//        }
+//    }
 
 
 }
