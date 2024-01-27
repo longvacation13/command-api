@@ -1,8 +1,10 @@
 package com.api.test.controller;
 
 import com.api.test.service.MergeSortService;
+import com.comm.dto.CommResDto;
 import com.comm.dto.ResponseDto;
 import jakarta.validation.Valid;
+import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,11 +22,10 @@ public class TestController {
 
 
     @GetMapping(value = "/testApi", produces="application/json")
-    public ResponseDto testApi(@RequestParam(required = false) @Valid String values) throws Exception {
-        return new ResponseDto.Builder()
-                              .status(HttpStatus.OK)
-                              .message("PROM_200")
-                              .data(mergeSortService.MergeSort(values))
+    public ResponseDto<CommResDto> testApi(@RequestParam(required = false) @Valid String values) throws Exception {
+        return new ResponseDto.Builder<CommResDto>()
+                              .status(HttpStatus.OK.value())
+                              .message("OK")
                               .build();
     }
 

@@ -1,45 +1,50 @@
 package com.comm.dto;
 
 
-import lombok.*;
-import org.apache.coyote.Response;
-import org.springframework.http.HttpStatus;
-
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
-public class ResponseDto {
-    private final HttpStatus status;
-    private final String message;
-    private final Object data;
+@Setter
+public class ResponseDto<T> {
+    private int status;
+    private String message;
+    private T data;
 
-    private ResponseDto(Builder builder) {
-        this.status  = builder.status;
-        this.message = builder.message;
-        this.data    = builder.data;
+    private ResponseDto(int status, String message, T data) {
+        this.status = status;
+        this.message = message;
+        this.data = data;
     }
 
-    public static class Builder {
-        private HttpStatus status;
+    // inner class
+    // 외부 클래스의 인스턴스에 종속되지 않음. 외부클래스의 인스턴스 없이 생성 가능
+    // 독립성 : static inner class는 외부 클래스의 인스턴스 혹은 메소드 직접 접근 불가
+    // 메모리 효율 : 외부 클래스의 인스턴스없이 생성 가능하기 때문에 필요한 때만 내부 클래스 인스턴스 생성하여 메모리 최적화
+    // 용도 : 외부 클래스의 인스턴스와 독립적인 동작을 할때 사용함 (쉽게말해 static 멤버에만 접근 가능)
+    public static class Builder<T> {
+        private int status;
         private String message;
-        private Object data;
+        private T data;
 
-        public Builder status(HttpStatus status) {
+        public Builder<T> status(int status) {
             this.status = status;
             return this;
         }
-        public Builder message(String message) {
+
+        public Builder<T> message(String message) {
             this.message = message;
             return this;
         }
 
-        public Builder data(Object data) {
+        public Builder<T> data(T data) {
             this.data = data;
             return this;
         }
 
-        public ResponseDto build() {
-            return new ResponseDto(this);
+        public ResponseDto<T> build() {
+            return new ResponseDto<>(status, message, data);
         }
-    }
 
+    }
 }
