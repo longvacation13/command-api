@@ -1,4 +1,5 @@
 package com.config.exception;
+import com.comm.code.CommCodeEnum;
 import com.comm.dto.CommResDto;
 import com.comm.dto.ResponseDto;
 import lombok.Getter;
@@ -18,7 +19,7 @@ import java.util.logging.Logger;
 
 // CustomExceptionHandler 클래스는
 // @ControllerAdvice 어노테이션을 사용하여 모든 컨트롤러에서 발생하는 CustomException을 처리합니다.
-@RestControllerAdvice(basePackages = {"com"})
+@RestControllerAdvice
 @Order(Ordered.HIGHEST_PRECEDENCE) // 가장 높은 우선
 @Slf4j
 public class CustomExceptionHandler {
@@ -29,25 +30,28 @@ public class CustomExceptionHandler {
     public ResponseDto<CommResDto> handleCustomException(CustomException ex) {
 
         // log
-        log.error("#### handle custom Exception");
+        log.error("#### handleCustomException ", ex.getMessage());
 
         CommResDto<String> commResDto
-                = new CommResDto.Builder<String>().resultCode("500").resultData("exception").build();
+                = new CommResDto.Builder<String>()
+                                .resultCode(CommCodeEnum.ApiResponse_901.getCode())
+                                .resultData(CommCodeEnum.ApiResponse_901.getCodeMsg()).build();
 
 
         return new ResponseDto.Builder<CommResDto>()
                               .status(HttpStatus.INTERNAL_SERVER_ERROR.value())
                               .message(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase())
                               .data(commResDto)
-                              .build()
-                ;
+                              .build();
     }
 
     @ExceptionHandler({MethodArgumentNotValidException.class})
     public ResponseDto<CommResDto> handleException(MethodArgumentNotValidException ex) {
 
         CommResDto<String> commResDto
-                = new CommResDto.Builder<String>().resultCode("500").resultData("exception").build();
+                = new CommResDto.Builder<String>()
+                                .resultCode(CommCodeEnum.ApiResponse_901.getCode())
+                                .resultData(CommCodeEnum.ApiResponse_901.getCodeMsg()).build();
 
         log.error("#### handleException");
         return new ResponseDto.Builder<CommResDto>()
