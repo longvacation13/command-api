@@ -34,7 +34,7 @@ public class CustomExceptionHandler {
 
         CommResDto<String> commResDto
                 = new CommResDto.Builder<String>()
-                                .resultCode(CommCodeEnum.ApiResponse_901.getCode())
+                                .resultCode(CommCodeEnum.ApiResponse_901.getCode())         // service method exception을 여기서 처리함
                                 .resultData(CommCodeEnum.ApiResponse_901.getCodeMsg()).build();
 
 
@@ -50,8 +50,8 @@ public class CustomExceptionHandler {
 
         CommResDto<String> commResDto
                 = new CommResDto.Builder<String>()
-                                .resultCode(CommCodeEnum.ApiResponse_901.getCode())
-                                .resultData(CommCodeEnum.ApiResponse_901.getCodeMsg()).build();
+                                .resultCode(CommCodeEnum.ApiResponse_999.getCode())
+                                .resultData(CommCodeEnum.ApiResponse_999.getCodeMsg()).build();
 
         log.error("#### handleException");
         return new ResponseDto.Builder<CommResDto>()
