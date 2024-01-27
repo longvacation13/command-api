@@ -2,10 +2,8 @@ package com.api.test.controller;
 
 import com.api.test.service.MergeSortService;
 import com.comm.dto.ResponseDto;
-import com.config.exception.CustomException;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -21,10 +19,8 @@ public class TestController {
     }
 
 
-
     @GetMapping(value = "/testApi", produces="application/json")
-    public ResponseDto testApi(@RequestParam(required = false) String values) throws CustomException {
-
+    public ResponseDto testApi(@RequestParam(required = false) @Valid String values) throws Exception {
         return new ResponseDto.Builder()
                               .status(HttpStatus.OK)
                               .message("PROM_200")
