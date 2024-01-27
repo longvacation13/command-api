@@ -29,4 +29,14 @@ public class TestController {
                               .build();
     }
 
+
+    @GetMapping(value = "/http2Test", produces="application/json")
+    public ResponseDto<CommResDto> http2Test() throws Exception {
+        return new ResponseDto.Builder<CommResDto>()
+                .status(HttpStatus.OK.value())
+                .message("OK")
+                .build();
+    }
+
+
 }
