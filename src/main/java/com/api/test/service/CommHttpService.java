@@ -7,6 +7,6 @@ import java.net.http.HttpResponse;
 
 public interface CommHttpService {
 
-    public CommResDto<HttpResponse> httpRequest();
+    CommResDto httpRequest();
 
 }

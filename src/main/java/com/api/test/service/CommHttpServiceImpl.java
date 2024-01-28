@@ -3,22 +3,25 @@ package com.api.test.service;
 import com.comm.code.CommCodeEnum;
 import com.comm.dto.CommResDto;
 import com.config.exception.CustomException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
+@Service
 public class CommHttpServiceImpl implements CommHttpService {
-
 
     /**
      * http 2.0 test (blocking)
      * @return
      */
     @Override
-    public CommResDto httpRequest() {
+    public CommResDto httpRequest() throws CustomException {
         HttpClient client = HttpClient.newBuilder()
                 .version(HttpClient.Version.HTTP_2)
                 .build();
@@ -27,6 +30,9 @@ public class CommHttpServiceImpl implements CommHttpService {
                 .uri(URI.create("http://httpbin.org/get"))
                 .build();
         try{
+
+
+            ObjectMapper objectMapper = new ObjectMapper();
 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             return new CommResDto.Builder<String>()

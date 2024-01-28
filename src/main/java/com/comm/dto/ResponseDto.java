@@ -11,6 +11,9 @@ public class ResponseDto<T> {
     private String message;
     private T data;
 
+    //private final int default$Status  = HttpStatus.OK.value();
+    //private final String default$message = HttpStatus.OK.getReasonPhrase();
+
     private ResponseDto(int status, String message, T data) {
         this.status = status;
         this.message = message;

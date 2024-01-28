@@ -30,7 +30,10 @@ public class CustomExceptionHandler {
     public ResponseDto<CommResDto> handleCustomException(CustomException ex) {
 
         // log
-        log.error("#### handleCustomException ", ex.getMessage());
+        log.error("#### handleCustomException : ");
+        for(StackTraceElement stackTraceElement : ex.getStackTrace()) {
+            log.error(stackTraceElement.toString());
+        }
 
         CommResDto<String> commResDto
                 = new CommResDto.Builder<String>()
