@@ -27,8 +27,17 @@ dependencies {
     implementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.17.1'
     // aop
     implementation 'org.springframework.boot:spring-boot-starter-aop'
+    // junit
+        // JUnit Jupiter API, 파라미터화 테스트를 포함한 JUnit 5 테스트를 작성하기 위한 라이브러리
+    testImplementation('org.junit.jupiter:junit-jupiter-api:5.9.0')
+        // JUnit Jupiter Engine, JUnit 5 테스트를 실행하기 위한 엔진
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.9.0')
 }
 
 tasks.named('test') {
+    useJUnitPlatform()
+}
+
+test {
     useJUnitPlatform()
 }

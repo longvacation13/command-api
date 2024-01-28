@@ -33,6 +33,4 @@ public class TestController {
                 .data(commHttpService.httpRequest())
                 .build();
     }
-
-
 }
