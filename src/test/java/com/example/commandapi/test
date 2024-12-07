@@ -1,0 +1,30 @@
+PromPoServiceImpl {
+
+    CommResDto 오퍼정보업데이트(PromReqDto dto, PromCommDto commDto) {
+        공통작업 0. 오퍼정보 변경시도 알림
+        공통작업 1. dto 필드를 세팅
+        공통작업 2. dto 값의 1차 유효성 검사 : 이전이력 체크
+        세부작업 1. 오퍼별 dto 세팅
+            1-1. ssgmoney & 릴레이에누리
+            1-2. 이외
+        공통작업 3. dto 필드 추가로 세팅필요한거 작업함
+        공통작업 4. 위에서 세팅한 dto 정보를 바탕으로 이전 이력 종료 & 신규이력 생성
+        공통작업 5. 오퍼노출위치 수정
+        세부작업 2. 오퍼별 PROM_OFFER_DTL 변경 처리
+            2-1. 릴레이에누리
+                2-1-1. 세부작업(insertPromOfferDtl)
+            2-2. 개별무이자할부  & 장바구니무이자할부
+                2-2-1. 세부작업(insertPromOfferDtl)
+            2-3. 특정카드혜택
+                2-3-1. 세부작업(insertPromOfferDtl)
+            2-4. 카드청구할인
+                2-4-1. 세부작업(insertPromOfferDtl)
+            2-5. SSGMONEY
+                2-5-1. 세부작업(insertPromOfferDtl)
+            2-6. 연계에누리 1/2
+            2-7. 이외 오퍼
+        알수 없는 작업 -> 확인필요
+            결제수단 오퍼에 대한 PROM_OFFER_DTL 추가
+    }
+
+}
