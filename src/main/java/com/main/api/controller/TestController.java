@@ -1,6 +1,7 @@
 package com.main.api.controller;
 
 import com.main.api.service.CommHttpService;
+import com.main.api.service.impl.ExampleService;
 import com.main.comm.dto.CommResDto;
 import com.main.comm.dto.ResponseDto;
 import com.main.exception.CustomException;
@@ -18,6 +19,8 @@ public class TestController {
     private CommHttpService commHttpService;
 
     private DiscountService discountService;
+
+    private ExampleService exampleService;
 
     @GetMapping(value = "/testApi", produces="application/json")
     public ResponseDto<CommResDto> testApi(@RequestParam(required = false) @Valid String values) throws Exception {
@@ -47,5 +50,10 @@ public class TestController {
                 .message(HttpStatus.OK.getReasonPhrase())
                 .data(commHttpService.httpRequest())
                 .build();
+    }
+
+    @GetMapping("/test-circuit-breaker")
+    public String testCircuitBreaker(@RequestParam(defaultValue = "false") boolean triggerError) {
+        return exampleService.unstableService(triggerError);
     }
 }
