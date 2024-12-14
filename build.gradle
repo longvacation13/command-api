@@ -19,7 +19,8 @@ repositories {
 dependencies {
     // Spring Kafka
     implementation 'org.springframework.kafka:spring-kafka'
-    // JSON 처리 라이브러리 (필수)
+
+    // JSON 처리 (Jackson 라이브러리)
     implementation 'com.fasterxml.jackson.core:jackson-databind'
 
     // Embedded Kafka for testing - kafka 브로커가 없기 때문에 내장함

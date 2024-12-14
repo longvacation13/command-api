@@ -2,8 +2,6 @@ package com.main.comm.config;
 
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import nonapi.io.github.classgraph.json.JSONDeserializer;
-import nonapi.io.github.classgraph.json.JSONSerializer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -13,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.*;
-import org.springframework.kafka.support.serializer.JsonDeserializer;
+
 
 import java.time.Duration;
 import java.util.HashMap;
@@ -32,8 +30,10 @@ public class KafkaConfig {
 
         // broker 관련 설정
         configProps.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVERS);
+
+
         configProps.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, JSONSerializer.class);
+        configProps.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, org.springframework.kafka.support.serializer.JsonSerializer.class);
         return new DefaultKafkaProducerFactory<>(configProps);
     }
 
@@ -55,13 +55,13 @@ public class KafkaConfig {
 
         // deserialize 설정
         configProps.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);    // String 기반
-        configProps.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JSONDeserializer.class);    // Json 방식
+        configProps.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, org.springframework.kafka.support.serializer.JsonDeserializer.class);    // Json 방식
 
         // trusted packages 설정 - 이 설정은 kakfa 메시지 헤더에 있는 객체 정보를 읽는데 어떤 패키지를 읽을것인지에 대한 설정
         // *가 아닐 경우 패키지를 지정하는데 해당 패키지에 없으면 설정에 따라 retry를 하는등 exception 발생함
-        configProps.put(JsonDeserializer.TRUSTED_PACKAGES, "*");    // 상관없이 모든 객체를 받는다는 의미
+        configProps.put(org.springframework.kafka.support.serializer.JsonDeserializer.TRUSTED_PACKAGES, "*");    // 상관없이 모든 객체를 받는다는 의미
 
-        return new DefaultKafkaConsumerFactory<>(configProps, new StringDeserializer(), new JsonDeserializer<>());
+        return new DefaultKafkaConsumerFactory<>(configProps, new StringDeserializer(), new org.springframework.kafka.support.serializer.JsonDeserializer<>());
     }
 
     // kafka listener 설정
