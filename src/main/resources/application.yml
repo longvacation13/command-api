@@ -12,3 +12,11 @@ management:
     web:
       exposure:
         include: "*" # 모든 엔드포인트 노출
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092 # Kafka 브로커 주소 확인
+    consumer:
+      group-id: test-group
+    admin:
+      auto-create-topics: true  # 토픽 없을 경우 자동 생성 옵션

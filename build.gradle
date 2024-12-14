@@ -22,6 +22,9 @@ dependencies {
     // JSON 처리 라이브러리 (필수)
     implementation 'com.fasterxml.jackson.core:jackson-databind'
 
+    // Embedded Kafka for testing - kafka 브로커가 없기 때문에 내장함
+    implementation 'org.springframework.kafka:spring-kafka-test' // Embedded Kafka
+
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-validation'

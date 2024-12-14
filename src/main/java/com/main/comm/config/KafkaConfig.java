@@ -51,7 +51,7 @@ public class KafkaConfig {
         configProps.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVERS);
 
         // 컨슈머 그룹은 리스너에서 지정
-        // configProps.put(ConsumerConfig.GROUP_ID_CONFIG, "test-group");
+        configProps.put(ConsumerConfig.GROUP_ID_CONFIG, "test-group");
 
         // deserialize 설정
         configProps.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);    // String 기반
