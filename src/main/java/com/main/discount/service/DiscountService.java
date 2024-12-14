@@ -1,4 +1,4 @@
-package com.main.discount;
+package com.main.discount.service;
 
 
 import org.springframework.stereotype.Service;

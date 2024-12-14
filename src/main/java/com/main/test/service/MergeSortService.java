@@ -1,6 +1,6 @@
-package com.main.api.service;
+package com.main.test.service;
 
-import com.main.api.dto.TestDto;
+import com.main.test.dto.TestDto;
 
 public interface MergeSortService {
     public TestDto MergeSort(String values);

@@ -1,4 +1,4 @@
-package com.main.api.service;
+package com.main.test.service;
 
 import com.main.comm.dto.CommResDto;
 import com.main.exception.CustomException;

@@ -1,4 +1,4 @@
-package com.main.discount;
+package com.main.discount.service;
 
 public class ImmediateDiscount extends Discount {
 

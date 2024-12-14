@@ -1,4 +1,4 @@
-package com.main.discount;
+package com.main.discount.service;
 
 public abstract class Discount {
 

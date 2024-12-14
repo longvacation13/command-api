@@ -1,4 +1,4 @@
-package com.main.api.service.impl;
+package com.main.test.service.impl;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.stereotype.Service;

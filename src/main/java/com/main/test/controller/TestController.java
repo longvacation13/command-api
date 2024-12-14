@@ -1,11 +1,11 @@
-package com.main.api.controller;
+package com.main.test.controller;
 
-import com.main.api.service.CommHttpService;
-import com.main.api.service.impl.ExampleService;
+import com.main.test.service.CommHttpService;
+import com.main.test.service.impl.ExampleService;
 import com.main.comm.dto.CommResDto;
 import com.main.comm.dto.ResponseDto;
 import com.main.exception.CustomException;
-import com.main.discount.DiscountService;
+import com.main.discount.service.DiscountService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
