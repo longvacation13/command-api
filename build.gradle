@@ -17,6 +17,12 @@ repositories {
 }
 
 dependencies {
+
+    // Spring Kafka
+    implementation 'org.springframework.kafka:spring-kafka'
+    // JSON 처리 라이브러리 (필수)
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
@@ -36,7 +42,6 @@ dependencies {
 
     // circuit breaker
     implementation 'io.github.resilience4j:resilience4j-spring-boot3:2.0.2' // Resilience4j for Spring Boot 3
-    implementation 'org.springframework.boot:spring-boot-starter-web'     // Spring Web
 }
 
 tasks.named('test') {
